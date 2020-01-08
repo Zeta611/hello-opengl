@@ -1,7 +1,7 @@
 CXX = clang++
 CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -pedantic-errors
 OBJS = main.o
-LDLIBS = -lglfw -lGLEW
+LDLIBS = -lglfw -lGLEW -framework OpenGL
 
 .PHONY : all clean distclean
 
