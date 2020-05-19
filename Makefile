@@ -1,16 +1,15 @@
 CXX = clang++
-CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -pedantic-errors
+CXXFLAGS = -std=c++2a -Wall -Wextra -Wpedantic -pedantic-errors
+LFLAGS = -lglfw -lGLEW -framework OpenGL
 OBJS = main.o
-LDLIBS = -lglfw -lGLEW -framework OpenGL
 
-.PHONY : all clean distclean
-
-all : run
+%.o : %.c
+	$(CXX) -MMD -c -o $@ $< $(CXXFLAGS) -include *.d
 
 run : $(OBJS)
-	$(CXX) -o run $(OBJS) $(LDLIBS)
+	$(CXX) -o $@ $^ $(CXXFLAGS) $(LFLAGS)
 
-main.o : main.cpp
+.PHONY : clean distclean
 
 clean :
 	$(RM) $(OBJS)
