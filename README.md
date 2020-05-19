@@ -9,5 +9,5 @@ and
 make
 ```
 
-## Envrionment
+## Environment
 Tested on macOS 10.15.4 with Apple clang 11.0.3
